@@ -1,0 +1,8 @@
+COMPILE
+g++ -c main.cc hi.cc bye.cc -I//afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/include
+LINK
+g++ main.o hi.o bye.o -o main -L/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/lib -lTree
+COMPILE+LINK
+g++ -o main main.cc hi.cc bye.cc -I/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/include -L/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/lib -lTree
+COMPILE+LINK+g++ WARNING FLAG
+g++ -Wall -o main main.cc hi.cc bye.cc -I/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/include -L/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/lib -lTree

@@ -1,0 +1,23 @@
+CXX=g++
+CXXFLAGS=-Wall
+ROOTINC=-I/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/include
+ROOTLIB=-L/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/lib
+ROOTLIBS=-lTree
+CXXFLAGS += $(ROOTINC)
+LDFLAGS = $(ROOTLIB) $(ROOTLIBS)
+OBJECTS = main.o hi.o bye.o
+
+.PHONY: default clean
+
+default: main
+
+main: $(OBJECTS)
+
+%: %.o
+	$(CXX) -o $@ $^ $(LDFLAGS)
+
+%.o: %.cc
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+clean:
+	rm -f ./*.o main 

@@ -1,0 +1,11 @@
+CC=g++
+CXXFLAGS=-Wall
+ROOTINC=-I/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/include
+ROOTLIB=-L/afs/.in2p3.fr/system/amd64_sl6/usr/local/root/v5.34.23/lib
+ROOTLIBS=-lTree
+CXXFLAGS += $(ROOTINC)
+LDFLAGS = $(ROOTLIB) $(ROOTLIBS)
+
+
+main: main.cc hi.cc bye.cc
+	$(CC) $(CXXFLAGS) -o main main.cc hi.cc bye.cc $(LDFLAGS)
